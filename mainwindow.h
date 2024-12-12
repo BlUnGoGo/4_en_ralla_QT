@@ -17,7 +17,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void showGameboardWidget();
+
+
 private:
     Ui::MainWindow *ui;
+    QWidget *currentWidget; // Puntero al widget actual
 };
 #endif // MAINWINDOW_H
