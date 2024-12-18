@@ -15,10 +15,12 @@ class GameBoard : public QWidget
 public:
     explicit GameBoard(QWidget *parent = nullptr);
     ~GameBoard();
-
+public slots:
+    void onPlayButtonClicked(); // Slot para manejar la acción "Jugar".
 protected:
     void paintEvent(QPaintEvent *event) override;
     void mousePressEvent(QMouseEvent *event) override;
+
 
 private:
     Ui::GameBoard *ui;
@@ -32,7 +34,7 @@ private:
     bool dropDisc(int column, int &row);
     bool llenoDisc(int column, int &row);
     bool checkWin(int row, int col);
-
+    bool reset(int rows, int cols);
     // Variables para la animación
     bool isAnimating;
     int animColumn;
@@ -41,6 +43,7 @@ private:
     int animPlayer; // Jugador que está animando
     QTimer animationTimer;
     void startAnimation(int column, int player);
+
 };
 
 #endif // GAMEBOARD_H

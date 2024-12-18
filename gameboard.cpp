@@ -177,3 +177,17 @@ bool GameBoard::checkWin(int row, int col)
 
     return false;
 }
+bool reset(int rows, int cols){
+
+}
+
+void GameBoard::onPlayButtonClicked() {
+    qDebug() << "Opción 'Jugar' seleccionada. Ejecutando lógica de GameBoard.";
+    for (int r =0; r <rows; ++r) {
+        for (int c= 0; c<cols;c++)
+        {
+            grid[r][c] = 0;
+        }
+    }
+    // Aquí implementas la lógica que deseas al seleccionar "Jugar".
+}

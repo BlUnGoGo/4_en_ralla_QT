@@ -32,9 +32,7 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::showGameboardWidget() {
-    if (currentWidget) {
-        delete currentWidget;
-    }
+
     currentWidget = new GameBoard(this);
     setCentralWidget(currentWidget);
 }

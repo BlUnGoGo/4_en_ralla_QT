@@ -20,9 +20,10 @@ public:
 private slots:
     void showGameboardWidget();
 
-
 private:
     Ui::MainWindow *ui;
+    void setupConnections();
     QWidget *currentWidget; // Puntero al widget actual
+
 };
 #endif // MAINWINDOW_H
