@@ -30,6 +30,7 @@ private:
     QVector<QVector<int>> grid;
 
     bool dropDisc(int column, int &row);
+    bool llenoDisc(int column, int &row);
     bool checkWin(int row, int col);
 
     // Variables para la animación

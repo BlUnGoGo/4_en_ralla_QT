@@ -95,7 +95,21 @@ void GameBoard::mousePressEvent(QMouseEvent *event)
 
             }
             else{
-                QMessageBox::warning(this, "Columna Llena", "La columna seleccionada está llena. Por favor, elige otra.");
+                bool lleno= false;
+                for(int b=0; b<cols; b++){
+                    if(llenoDisc(b, row)){
+                        b=cols;
+                    }
+                    else if(b==cols-1){
+                        QMessageBox::warning(this, "Tablero Lleno", "El tablero está lleno, han empatado");
+                        lleno=true;
+                    }
+                }
+                if(!lleno){
+                    QMessageBox::warning(this, "Columna Llena", "La columna seleccionada está llena. Por favor, elige otra.");
+
+                }
+
             }
         }
 
@@ -103,6 +117,17 @@ void GameBoard::mousePressEvent(QMouseEvent *event)
 }
 
 bool GameBoard::dropDisc(int column, int &row)
+{
+    for (int r = rows - 1; r >= 0; --r) {
+        if (grid[r][column] == 0) {
+            grid[r][column] = currentPlayer;
+            row = r;
+            return true;
+        }
+    }
+    return false; // Columna llena
+}
+bool GameBoard::llenoDisc(int column, int &row)
 {
     for (int r = rows - 1; r >= 0; --r) {
         if (grid[r][column] == 0) {
