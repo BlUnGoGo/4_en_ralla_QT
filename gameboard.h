@@ -33,8 +33,8 @@ private:
 
     bool dropDisc(int column, int &row);
     bool llenoDisc(int column, int &row);
+    bool llenoColumna(int column, int &row);
     bool checkWin(int row, int col);
-    bool reset(int rows, int cols);
     // Variables para la animación
     bool isAnimating;
     int animColumn;

@@ -127,12 +127,12 @@ bool GameBoard::dropDisc(int column, int &row)
     }
     return false; // Columna llena
 }
+
 bool GameBoard::llenoDisc(int column, int &row)
 {
     for (int r = rows - 1; r >= 0; --r) {
         if (grid[r][column] == 0) {
-            grid[r][column] = currentPlayer;
-            row = r;
+
             return true;
         }
     }
@@ -176,18 +176,4 @@ bool GameBoard::checkWin(int row, int col)
     }
 
     return false;
-}
-bool reset(int rows, int cols){
-
-}
-
-void GameBoard::onPlayButtonClicked() {
-    qDebug() << "Opción 'Jugar' seleccionada. Ejecutando lógica de GameBoard.";
-    for (int r =0; r <rows; ++r) {
-        for (int c= 0; c<cols;c++)
-        {
-            grid[r][c] = 0;
-        }
-    }
-    // Aquí implementas la lógica que deseas al seleccionar "Jugar".
 }
