@@ -12,11 +12,13 @@ GameBoard::GameBoard(QWidget *parent)
     , rows(6)
     , cols(7)
     , currentPlayer(1)
+    , iswining(false)
 {
     ui->setupUi(this);
     grid.resize(rows, QVector<int>(cols, 0));
     setMinimumSize(cols * 40, rows * 40);
 }
+
 
 GameBoard::~GameBoard()
 {
@@ -69,7 +71,7 @@ void GameBoard::paintEvent(QPaintEvent *event)
 
 void GameBoard::mousePressEvent(QMouseEvent *event)
 {
-    if (event->button() == Qt::LeftButton) {
+    if (event->button() == Qt::LeftButton && !iswining) {
         int x = event->pos().x();
         QRect geom = geometry();
         int with = geom.width();
@@ -86,7 +88,7 @@ void GameBoard::mousePressEvent(QMouseEvent *event)
                 if(checkWin(row, column)){
 
                     QMessageBox::information(this, "Victoria", QString("¡Jugador %1 ha ganado!").arg(currentPlayer));
-
+                    iswining= true;
                     return;
                 }
 

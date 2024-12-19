@@ -28,7 +28,7 @@ private:
     int cols;
     int cellSize;
     int currentPlayer;
-
+    bool iswining;
     QVector<QVector<int>> grid;
 
     bool dropDisc(int column, int &row);
